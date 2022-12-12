@@ -5,7 +5,6 @@ class Game {
   }
 
   start() {
-    player = new Player();
     form = new Form();
     form.display();
     obstacles = new Group()
@@ -23,7 +22,10 @@ class Game {
       { x: width / 2 + 300, y: height / 2, image: obstacle1Image },
       { x: width / 2 + 180, y: height / 2 + 100, image: obstacle1Image }
     ];
-     this.addSprites(obstacles,obstaclesPositions.length,obstacle1Image,0.04,obstaclesPositions)
+     
+    //player1 = createSprite(mouseX,mouseY)
+    //reticula = loadImage(reticulaImg)
+    //player1.addImage(reticula)
   }
 
   addSprites(spriteGroup, numberOfSprites, spriteImage, scale,positions=[]) {
@@ -35,8 +37,8 @@ class Game {
         y = positions[i].y
         spriteImage = positions[i].image
       } else {
-        x = random(width / 2 + 150, width / 2 - 150);
-        y = random(-height * 10, height - 400);
+        x = random(50,width-50);
+        y = random(50, 400 );
       }
       
       var sprite = createSprite(x, y);
@@ -60,11 +62,16 @@ class Game {
   }
 
   play(){
+
     this.handleElements()
     this.handleResetButton()
-
     background(bgImg2)
-      drawSprites()
+    player = new Player();
+    player.handlePlayerControls()
+
+    //this.addSprites(obstacles,1,obstacle1Image,0.5)
+    drawSprites()
+      
   }
 
   handleResetButton(){
@@ -100,7 +107,6 @@ class Game {
   showLife() {
       
   }
-  
 
   handleObstacleCollision(index) {
     if (cars[index - 1].collide(obstacles)) {

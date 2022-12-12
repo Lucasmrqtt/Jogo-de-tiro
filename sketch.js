@@ -8,6 +8,7 @@ var lifeImage;
 var bancada;
 var reticulaImg = "";
 var reticula;
+var player1
 
 
 function preload() {
@@ -29,9 +30,11 @@ function draw() {
     game.play()
   }
 
+  drawSprites()
   text("X:"+mouseX+"  Y:"+mouseY,mouseX,mouseY);
 }
 
 function windowResized() {
   resizeCanvas(windowWidth, windowHeight);
 }
+
