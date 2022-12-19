@@ -7,6 +7,7 @@ class Game {
   start() {
     form = new Form();
     form.display();
+    
     obstacles = new Group()
     var obstaclesPositions = [
       { x: width / 2 - 535, y: height / 2 - 215, image: obstacle1Image },
@@ -22,10 +23,16 @@ class Game {
       { x: width / 2 + 300, y: height / 2, image: obstacle1Image },
       { x: width / 2 + 180, y: height / 2 + 100, image: obstacle1Image }
     ];
-     
-    //player1 = createSprite(mouseX,mouseY)
-    //reticula = loadImage(reticulaImg)
-    //player1.addImage(reticula)
+    
+    gun = createSprite(width/2 + 50,500)
+    gun.addImage(gunImg)
+    gun.scale = 1.7
+    
+    alvo1 = createSprite(random(50,width-50),random(50,400  ))
+    alvo1.addImage(obstacle1Image)
+    alvo1.scale = 0.5
+    //this.addSprites(obstacles,1,obstacle1Image,0.5)
+
   }
 
   addSprites(spriteGroup, numberOfSprites, spriteImage, scale,positions=[]) {
@@ -45,6 +52,7 @@ class Game {
       sprite.addImage("sprite", spriteImage);
 
       sprite.scale = scale;
+      sprite.depth = gun.depth-1
       spriteGroup.add(sprite);
     }
 
@@ -62,14 +70,17 @@ class Game {
   }
 
   play(){
-
+    
     this.handleElements()
     this.handleResetButton()
     background(bgImg2)
-    player = new Player();
+    
     player.handlePlayerControls()
 
-    //this.addSprites(obstacles,1,obstacle1Image,0.5)
+    if (mousePressedOver(alvo1)) {
+      alvo1.destroy()
+    }
+    
     drawSprites()
       
   }
@@ -126,4 +137,3 @@ class Game {
   }
 
 }
-

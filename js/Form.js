@@ -73,32 +73,44 @@ class Form {
         this.ret6.show()
     } )
     this.ret1.mouseClicked( ()=>{
-      reticulaImg = ("./assets/white/crosshair001.png")
+      reticula = 1
+      //reticulaImg = ("./assets/white/crosshair001.png")
+      player = new Player(reticula);
       gameState = 1
     } )
 
     this.ret2.mouseClicked( ()=>{
-      reticulaImg = ("./assets/white/crosshair022.png")
+      reticula = 2
+      //reticulaImg = ("./assets/white/crosshair022.png")
+      player = new Player(reticula);
       gameState = 1
     } )
 
     this.ret3.mouseClicked( ()=>{
-      reticulaImg = ("./assets/white/crosshair040.png")
+      reticula = 3
+      //reticulaImg = ("./assets/white/crosshair040.png")
+      player = new Player(reticula);
       gameState = 1
     } )
 
     this.ret4.mouseClicked( ()=>{
-      reticulaImg = ("./assets/white/crosshair047.png")
+      reticula = 4
+      //reticulaImg = ("./assets/white/crosshair047.png")
+      player = new Player(reticula);
       gameState = 1
     } )
 
     this.ret5.mouseClicked( ()=>{
-      reticulaImg = ("./assets/white/crosshair058.png")
+      reticula = 5
+      //reticulaImg = ("./assets/white/crosshair058.png")
+      player = new Player(reticula);
       gameState = 1
     } )
     
     this.ret6.mouseClicked( ()=>{
-      reticulaImg = ("./assets/white/crosshair141.png")
+      reticula = 6
+      //reticulaImg = ("./assets/white/crosshair141.png")
+      player = new Player(reticula);
       gameState = 1
     } )
     
